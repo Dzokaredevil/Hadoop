@@ -14,12 +14,12 @@ import javax.xml.soap.Text;
 import java.io.*;
 import java.util.*;
 
-public class sum extends Reducer<Text, IntWritable, Text, IntWritable> {
+public class summer extends Reducer<Text, IntWritable, Text, IntWritable> {
     public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
-        int summer = 0;
+        int sum = 0;
         for (IntWritable val : values){
-            summer += val.get();
+            sum += val.get();
         }
-        context.write(key, new IntWritable(summer));
+        context.write(key, new IntWritable(sum));
     }
 }

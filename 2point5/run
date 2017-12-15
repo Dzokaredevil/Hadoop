@@ -1,0 +1,18 @@
+#!/bin/sh
+inputdir="/datasets/text"
+gluster="/gfs"
+prefix="output-"
+prefix2="intermediate-"
+lastnum=$(ls $gluster$HOME |
+sed -rne 's:output-([0-9]+):\1:p' |
+sort -n |
+tail -n1)
+newnum=$(expr $lastnum \+ 1)
+intermediate="$HOME/$prefix2$newnum"
+outputdir="$HOME/$prefix$newnum"
+echo "Input dir: $inputdir"
+echo "Intermediarte dir: $intermediate"
+echo "Output dir: $outputdir"
+hadoop-submit --jar build/wordcount.jar -- \
+	-libjars /mnt/root/jars/lucene/6.2.0/lucene-core-6.2.0.jar \
+	$inputdir $intermediate $outputdir

@@ -1,8 +1,3 @@
-/**
- * Created by dimav on 15.12.2017.
- * Don't copy my code. The truth must be taken.
- */
-
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapreduce.*;
 import org.apache.hadoop.mapreduce.lib.input.*;
@@ -14,11 +9,15 @@ import javax.xml.soap.Text;
 import java.io.*;
 import java.util.*;
 
-public class summer extends Reducer<Text, IntWritable, Text, IntWritable> {
-    public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
+public class summer
+extends Reducer<Text, IntWritable, Text, IntWritable>
+{
+    public void reduce(Text key, Iterable<IntWritable> values, Context context)
+	throws IOException, InterruptedException
+	{
         int sum = 0;
-        for (IntWritable val : values){
-            sum += val.get();
+        for (IntWritable value : values) {
+            sum += value.get();
         }
         context.write(key, new IntWritable(sum));
     }

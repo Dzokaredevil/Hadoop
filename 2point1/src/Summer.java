@@ -9,7 +9,7 @@ import javax.xml.soap.Text;
 import java.io.*;
 import java.util.*;
 
-public class summer
+public class Summer
 extends Reducer<Text, IntWritable, Text, IntWritable>
 {
     public void reduce(Text key, Iterable<IntWritable> values, Context context)

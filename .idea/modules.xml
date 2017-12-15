@@ -2,6 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/2point1/2point1.iml" filepath="$PROJECT_DIR$/2point1/2point1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2point2/2point2.iml" filepath="$PROJECT_DIR$/2point2/2point2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2point3/2point3.iml" filepath="$PROJECT_DIR$/2point3/2point3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2point4/2point4.iml" filepath="$PROJECT_DIR$/2point4/2point4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2point5/2point5.iml" filepath="$PROJECT_DIR$/2point5/2point5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/3point1/3point1.iml" filepath="$PROJECT_DIR$/3point1/3point1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/4point1/4point1.iml" filepath="$PROJECT_DIR$/4point1/4point1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/5point1/5point1.iml" filepath="$PROJECT_DIR$/5point1/5point1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/5point2/5point2.iml" filepath="$PROJECT_DIR$/5point2/5point2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Hadoop.iml" filepath="$PROJECT_DIR$/Hadoop.iml" />
     </modules>
   </component>

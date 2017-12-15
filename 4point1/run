@@ -1,0 +1,15 @@
+#!/bin/sh
+inputdir="/datasets/ndbc-small"
+gluster="/mnt/root"
+prefix="output-"
+lastnum=$(ls $gluster$HOME |
+sed -rne 's:output-([0-9]+):\1:p' |
+sort -n |
+tail -n1)
+newnum=$(expr $lastnum \+ 1)
+outputdir="$HOME/$prefix$newnum"
+echo "Input dir: $inputdir"
+echo "Output dir: $outputdir"
+hadoop-submit --jar build/spectrum.jar -- \
+	-libjars /mnt/root/jars/netcdf/4.6/netcdfAll-4.6.jar \
+	$inputdir $outputdir

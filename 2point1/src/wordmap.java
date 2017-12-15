@@ -11,7 +11,6 @@ import org.apache.lucene.analysis.*;
 import org.apache.lucene.analysis.standard.*;
 import org.apache.lucene.analysis.tokenattributes.*;
 
-
 import javax.naming.Context;
 import javax.xml.soap.Text;
 import java.io.*;

@@ -1,0 +1,16 @@
+#!/bin/sh
+inputdir="/datasets/text"
+gluster="/mnt/root"
+prefix="output-"
+name="z5-1"
+lastnum=$(ls $gluster$HOME |
+sed -rne 's:output-([0-9]+):\1:p' |
+sort -n |
+tail -n1)
+newnum=$(expr $lastnum \+ 1)
+outputdir="$HOME/$prefix$name"
+echo "Input dir: $inputdir"
+echo "Output dir: $outputdir"
+spark-submit \
+	--jars /mnt/root/jars/lucene/6.2.0/lucene-core-6.2.0.jar \
+	build/wordcount.jar $inputdir $outputdir

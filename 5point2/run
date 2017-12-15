@@ -1,0 +1,14 @@
+#!/bin/sh
+inputdir="/datasets/ndbc-small"
+gluster="/mnt/root"
+prefix="output-"
+name="z5-2"
+lastnum=$(ls $gluster$HOME |
+sed -rne 's:output-([0-9]+):\1:p' |
+sort -n |
+tail -n1)
+newnum=$(expr $lastnum \+ 1)
+outputdir="$HOME/$prefix$name"
+echo "Input dir: $inputdir"
+echo "Output dir: $outputdir"
+spark-submit build/spec.jar $inputdir $outputdir

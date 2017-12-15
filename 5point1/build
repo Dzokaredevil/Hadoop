@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="${program.name}" basedir="." default="all">
+
+    <property file="build.pro" />
+
+    <target name="all" depends="jar" />
+
+    <target name="jar" depends="compile">
+        <jar destfile="build/${program.name}.jar">
+            <manifest>
+                <attribute name="Main-Class" value="${main.class}" />
+            </manifest>
+            <fileset dir="${class.dir}" />
+        </jar>
+    </target>
+
+    <target name="compile" depends="mkdirs,init">
+        <scalac destdir="${class.dir}" classpath="${classpath}">
+            <src path="src" />
+            <compilerarg value="-Xlint:deprecation" />
+        </scalac>
+    </target>
+
+    <target name="mkdirs">
+        <mkdir dir="build" />
+        <mkdir dir="build/class" />
+    </target>
+
+    <target name="clean">
+        <delete dir="build" />
+    </target>
+
+    <target name="init">
+        <property name="scala-library.jar" value="$/usr/share/java/scala-library.jar" />
+        <taskdef resource="scala/tools/ant/antlib.xml">
+            <classpath>
+                <pathelement location="${scala.lib}/scala-compiler.jar"   />
+                <!-- NEW: For scala 2.10.2 you need scala-reflect: -->
+                <pathelement location="${scala.lib}/scala-reflect.jar"   />
+                <pathelement location="${scala.lib}/scala-library.jar"   />
+            </classpath>
+        </taskdef>
+    </target>
+</project>

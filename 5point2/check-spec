@@ -1,0 +1,30 @@
+#!/bin/bash
+
+dirs=$*
+
+usage() {
+	echo "USAGE: $(basename $0) <your-output-dirs>"
+}
+
+if test -z "$dirs"; then
+	usage
+	exit 1
+fi
+
+for i in $dirs; do
+	if ! test -d "$i"; then
+		echo "Error. '$i' is not a directory."
+		usage
+		exit 2
+	fi
+done
+
+ORIG_SPEC=/mnt/root/datasets/spec-orig
+
+{
+	echo "Sorting your spectrum. Please, wait..."
+	echo "Press 'q' to exit."
+#	find $dirs -type f -name 'part-*' | xargs cat | sort --buffer-size=64M
+	unset LC_CTYPE
+	diff -c <(find $dirs -type f -name 'part-*' | xargs cat | sort --buffer-size=64M) $ORIG_SPEC && echo "Your spectrum is OK."
+} | less -S

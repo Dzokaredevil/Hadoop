@@ -86,8 +86,8 @@ URL дев хоста: `ant.apmath.spbu.ru`.
 ## Сборка кода
 
 ```bash
-$ cd /home/Dzokaredevil/Hw
-$ cd ${нужное задание}/src
+$ cd /home/Dzokaredevil/
+$ cd ${нужное задание}/{порядковое число-название единственной папки}/src
 $ ant
 $ ./run
 ```

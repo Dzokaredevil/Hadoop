@@ -92,7 +92,3 @@ $ ant
 $ ./run
 ```
 
-
-## Логи output
-
-Логи все можно найти в `/mnt/root/home/Dzokaredevil/output-z${номер задачи}`
